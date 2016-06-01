@@ -1,27 +1,35 @@
 var button = document.getElementById("button");
 var maxXAxis = window.innerWidth - 124, maxYAxis = window.innerHeight - 44;
-var locationX = maxXAxis/2, locationY = maxYAxis/2;
-var buttonCounter = 0, timerValue = 10;
-var timer;
+var locationX, locationY, buttonCounter, timerValue, timer;
 var resultsBox = document.getElementById("resultsBox");
+var restartButton = document.getElementById("restartButton");
 
-//set the button's initial location
-button.style.left = locationX.toString() + "px";
-button.style.top = locationY.toString() + "px";
+prepareGame();
 
+function prepareGame(){
+	//Set the button's initial location
+	locationX = maxXAxis/2;
+	locationY = maxYAxis/2;
+	button.style.left = locationX.toString() + "px";
+	button.style.top = locationY.toString() + "px";
 
-button.onmouseenter = function(){
-	//Sets the timer and button counter on the first mouseenter
+	//Initializes/resets the variables to prepare the game
+	resultsBox.style.display = "none";
+	buttonCounter = 0;
+	timerValue = 10;
+	rightHeader.innerHTML = timerValue;
+	button.innerHTML = "<p>Hey there.</p>";
+	button.onmouseenter = enterButton;
+}
+
+function enterButton(){
+	//Sets the timer on the first mouseenter
 	if (timer === undefined){
-		resultsBox.style.display = "none";
-		timerValue = 10;
-		rightHeader.innerHTML = timerValue;
 		rightHeader.style.color = "red";
 		timer = setInterval(countdown, 1000);
-		buttonCounter = 0;
 	}
 
-	//Sets the counter in the button
+	//Updates the counter in the button
 	buttonCounter++;
 	button.innerHTML = "<p>" + buttonCounter + "</p>";
 
@@ -36,7 +44,7 @@ button.onmouseenter = function(){
 	//sets the location properties of the button
 	button.style.left = locationX.toString() + "px";
 	button.style.top = locationY.toString() + "px";
-};
+}
 
 
 function countdown(){
@@ -56,12 +64,5 @@ function countdown(){
 
 function showResults(){
 	resultsBox.style.display = "block";
-	resultsBox.innerHTML = "Score: " + buttonCounter;
+	resultsBox.innerHTML = "Score: " + buttonCounter + "<br><br>" + resultsBox.innerHTML;
 }
-
-
-/*Alternate onmouse event function
-button.addEventListener("mouseenter", function(){
-	//same code as the button.onmouseenter function
-});
-*/

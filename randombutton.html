@@ -6,8 +6,10 @@
 </head>
 <body>
 	<div id="rightHeader">10</div>
-	<div id="button"><p>Hey there.</p></div>
-	<div id="resultsBox"></div>
+	<div id="button" onmouseenter="enterButton()"><p>Hey there.</p></div>
+	<div id="resultsBox">
+		<div id="restartButton" onclick="prepareGame()">Restart</div>
+	</div>
 
 <script src="app.js" type="text/javascript" charset="utf-8"></script>
 </body>
@@ -15,7 +17,9 @@
 
 
 <!--TO DO
-stop the game at zero, display results, and provide option to restart
+fix multiple scores in results box
+increase font size
 set container width
+give layer priority to the results box
 high score in upper left hand corner
 -->
