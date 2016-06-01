@@ -1,11 +1,17 @@
 var button = document.getElementById("button");
 var maxXAxis = window.innerWidth - 124, maxYAxis = window.innerHeight - 44;
 var locationX = maxXAxis/2, locationY = maxYAxis/2;
+var counter = 0;
 
+//set the button's initial location
 button.style.left = locationX.toString() + "px";
 button.style.top = locationY.toString() + "px";
 
 button.onmouseenter = function(){
+	//Sets a counter in the button
+	counter++;
+	button.innerHTML = "<p>" + counter + "</p>";
+
 	//window height and width are calculated within the function to adjust if the user changes the window size
 	maxXAxis = window.innerWidth - 124;
 	maxYAxis = window.innerHeight - 44;
@@ -23,6 +29,9 @@ button.onmouseenter = function(){
 
 /*Alternate function
 button.addEventListener("mouseenter", function(){
+	counter++;
+	button.innerHTML = "<p>" + counter + "</p>";
+
 	maxXAxis = window.innerWidth - 124;
 	maxYAxis = window.innerHeight - 44;
 
