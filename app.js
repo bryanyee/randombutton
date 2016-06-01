@@ -1,13 +1,18 @@
 var button = document.getElementById("button");
 var maxXAxis = window.innerWidth - 124, maxYAxis = window.innerHeight - 44;
 var locationX = maxXAxis/2, locationY = maxYAxis/2;
-var counter = 0;
+var counter = 0, timerValue = 10;
+var timer;
 
 //set the button's initial location
 button.style.left = locationX.toString() + "px";
 button.style.top = locationY.toString() + "px";
 
+
 button.onmouseenter = function(){
+	//Sets the timer
+	if (timer === undefined) timer = setInterval(countdown, 1000);
+
 	//Sets a counter in the button
 	counter++;
 	button.innerHTML = "<p>" + counter + "</p>";
@@ -26,8 +31,17 @@ button.onmouseenter = function(){
 };
 
 
+function countdown(){
+	timerValue--;
+	rightHeader.innerHTML = timerValue;
+	if (timerValue === 0) clearInterval(timer);
+}
 
-/*Alternate function
+
+
+
+
+/*Alternate onmouse event function
 button.addEventListener("mouseenter", function(){
 	counter++;
 	button.innerHTML = "<p>" + counter + "</p>";
@@ -42,6 +56,3 @@ button.addEventListener("mouseenter", function(){
 	button.style.top = locationY.toString() + "px";
 });
 */
-
-
-
