@@ -43,8 +43,9 @@ function countdown(){
 	timerValue--;
 	rightHeader.innerHTML = timerValue;
 
-	//Stop the timer when it reaches zero
+	//Stop the timer and deactivate the button when the countdown reaches zero
 	if (timerValue === 0) {
+		button.onmouseenter = undefined;
 		clearInterval(timer);
 		timer = undefined;
 		rightHeader.style.color = "white";
@@ -55,6 +56,7 @@ function countdown(){
 
 function showResults(){
 	resultsBox.style.display = "block";
+	resultsBox.innerHTML = "Score: " + buttonCounter;
 }
 
 
