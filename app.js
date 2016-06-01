@@ -1,8 +1,8 @@
-var button = document.getElementById("button");
-var maxXAxis = window.innerWidth - 124, maxYAxis = window.innerHeight - 44;
-var locationX, locationY, buttonCounter, timerValue, timer;
+var gameButton = document.getElementById("gameButton");
 var resultsBox = document.getElementById("resultsBox");
 var restartButton = document.getElementById("restartButton");
+var maxXAxis = window.innerWidth - 124, maxYAxis = window.innerHeight - 44;
+var locationX, locationY, buttonCounter, timerValue, timer;
 
 prepareGame();
 
@@ -10,16 +10,16 @@ function prepareGame(){
 	//Set the button's initial location
 	locationX = maxXAxis/2;
 	locationY = maxYAxis/2;
-	button.style.left = locationX.toString() + "px";
-	button.style.top = locationY.toString() + "px";
+	gameButton.style.left = locationX.toString() + "px";
+	gameButton.style.top = locationY.toString() + "px";
 
 	//Initializes/resets the variables to prepare the game
 	resultsBox.style.display = "none";
 	buttonCounter = 0;
 	timerValue = 10;
 	rightHeader.innerHTML = timerValue;
-	button.innerHTML = "<p>Hey there.</p>";
-	button.onmouseenter = enterButton;
+	gameButton.innerHTML = "<p>Hey there.</p>";
+	gameButton.onmouseenter = enterButton;
 }
 
 function enterButton(){
@@ -31,7 +31,7 @@ function enterButton(){
 
 	//Updates the counter in the button
 	buttonCounter++;
-	button.innerHTML = "<p>" + buttonCounter + "</p>";
+	gameButton.innerHTML = "<p>" + buttonCounter + "</p>";
 
 	//window height and width are calculated within the function to adjust if the user changes the window size
 	maxXAxis = window.innerWidth - 124;
@@ -42,8 +42,8 @@ function enterButton(){
 	locationY = Math.random() * maxYAxis;
 
 	//sets the location properties of the button
-	button.style.left = locationX.toString() + "px";
-	button.style.top = locationY.toString() + "px";
+	gameButton.style.left = locationX.toString() + "px";
+	gameButton.style.top = locationY.toString() + "px";
 }
 
 
@@ -53,7 +53,7 @@ function countdown(){
 
 	//Stop the timer and deactivate the button when the countdown reaches zero
 	if (timerValue === 0) {
-		button.onmouseenter = undefined;
+		gameButton.onmouseenter = undefined;
 		clearInterval(timer);
 		timer = undefined;
 		rightHeader.style.color = "white";
