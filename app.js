@@ -10,15 +10,16 @@ button.style.top = locationY.toString() + "px";
 
 
 button.onmouseenter = function(){
-	//Sets the timer on the first mouseenter
+	//Sets the timer and button counter on the first mouseenter
 	if (timer === undefined){
 		timerValue = 10;
 		rightHeader.innerHTML = timerValue;
 		rightHeader.style.color = "red";
 		timer = setInterval(countdown, 1000);
+		buttonCounter = 0;
 	}
 
-	//Sets a counter in the button
+	//Sets the counter in the button
 	buttonCounter++;
 	button.innerHTML = "<p>" + buttonCounter + "</p>";
 
