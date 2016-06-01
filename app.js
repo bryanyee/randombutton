@@ -1,5 +1,9 @@
 var button = document.getElementById("button");
-var maxXAxis, maxYAxis, locationX, locationY;
+var maxXAxis = window.innerWidth - 124, maxYAxis = window.innerHeight - 44;
+var locationX = maxXAxis/2, locationY = maxYAxis/2;
+
+button.style.left = locationX.toString() + "px";
+button.style.top = locationY.toString() + "px";
 
 button.onmouseenter = function(){
 	//window height and width are calculated within the function to adjust if the user changes the window size
