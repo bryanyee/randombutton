@@ -11,7 +11,11 @@ button.style.top = locationY.toString() + "px";
 
 button.onmouseenter = function(){
 	//Sets the timer
-	if (timer === undefined) timer = setInterval(countdown, 1000);
+	if (timer === undefined){
+		timerValue = 10;
+		rightHeader.innerHTML = timerValue;
+		timer = setInterval(countdown, 1000);
+	}
 
 	//Sets a counter in the button
 	buttonCounter++;
@@ -34,7 +38,12 @@ button.onmouseenter = function(){
 function countdown(){
 	timerValue--;
 	rightHeader.innerHTML = timerValue;
-	if (timerValue === 0) clearInterval(timer);
+
+	//Stop the timer when it reaches zero
+	if (timerValue === 0) {
+		clearInterval(timer);
+		timer = undefined;
+	}
 }
 
 
