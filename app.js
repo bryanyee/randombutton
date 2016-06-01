@@ -10,10 +10,11 @@ button.style.top = locationY.toString() + "px";
 
 
 button.onmouseenter = function(){
-	//Sets the timer
+	//Sets the timer on the first mouseenter
 	if (timer === undefined){
 		timerValue = 10;
 		rightHeader.innerHTML = timerValue;
+		rightHeader.style.color = "red";
 		timer = setInterval(countdown, 1000);
 	}
 
@@ -43,6 +44,7 @@ function countdown(){
 	if (timerValue === 0) {
 		clearInterval(timer);
 		timer = undefined;
+		rightHeader.style.color = "white";
 	}
 }
 
@@ -50,7 +52,12 @@ function countdown(){
 /*Alternate onmouse event function
 button.addEventListener("mouseenter", function(){
 	//Sets the timer
-	if (timer === undefined) timer = setInterval(countdown, 1000);
+	if (timer === undefined){
+		timerValue = 10;
+		rightHeader.innerHTML = timerValue;
+		rightHeader.style.color = "red";
+		timer = setInterval(countdown, 1000);
+	}
 
 	//Sets a counter in the button
 	buttonCounter++;
