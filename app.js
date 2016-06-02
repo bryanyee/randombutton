@@ -21,6 +21,12 @@ function prepareGame(){
 	rightHeader.innerHTML = timerValue;
 	gameButton.innerHTML = "Hey there.";
 	gameButton.onmouseenter = enterButton;
+
+	//if the first game is already played, display the high score
+	if(highScore > 0){
+		leftHeader.innerHTML = "High Score: " + highScore;
+		leftHeader.style.display = "inline";
+	}
 }
 
 function enterButton(){
@@ -72,6 +78,4 @@ function showResults(){
 	else { resultsBox.innerHTML = "Score: " + buttonCounter + "<div id='restartButton' onclick='prepareGame()'>Restart</div>" }
 
 	resultsBox.style.display = "block";
-	leftHeader.innerHTML = "High Score: " + highScore;
-	leftHeader.style.display = "inline";
 }
