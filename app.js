@@ -18,7 +18,7 @@ function prepareGame(){
 	buttonCounter = 0;
 	timerValue = 10;
 	rightHeader.innerHTML = timerValue;
-	gameButton.innerHTML = "<p>Hey there.</p>";
+	gameButton.innerHTML = "Hey there.";
 	gameButton.onmouseenter = enterButton;
 }
 
@@ -31,7 +31,7 @@ function enterButton(){
 
 	//Updates the counter in the button
 	buttonCounter++;
-	gameButton.innerHTML = "<p>" + buttonCounter + "</p>";
+	gameButton.innerHTML = buttonCounter;
 
 	//window height and width are calculated within the function to adjust if the user changes the window size
 	maxXAxis = window.innerWidth - 124;
