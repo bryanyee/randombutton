@@ -64,5 +64,5 @@ function countdown(){
 
 function showResults(){
 	resultsBox.style.display = "block";
-	resultsBox.innerHTML = "Score: " + buttonCounter + "<br><br>" + resultsBox.innerHTML;
+	resultsBox.innerHTML = "Score: " + buttonCounter + "<br><br><div id='restartButton' onclick='prepareGame()'>Restart</div>";
 }
