@@ -12,6 +12,8 @@ body {
 	margin: 10px 10px 0px 0px;
 	color: white;
 	font-size: 30pt;
+	position: relative;
+	z-index: 1;
 }
 
 #gameButton {
@@ -21,8 +23,9 @@ body {
 	border-radius: 10px;
 	border: 2px solid black;
 	padding-top: 10px;
-	position: absolute;
 	margin: auto;
+	position: absolute;
+	z-index: 2;
 }
 
 #resultsBox{
@@ -34,7 +37,9 @@ body {
 	display: none;
 	margin: auto;
 	padding-top: 15px;
-	font-size: 20pt
+	font-size: 20pt;
+	position: relative;
+	z-index: 3;
 }
 
 #restartButton{
