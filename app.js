@@ -1,8 +1,9 @@
 var gameButton = document.getElementById("gameButton");
 var resultsBox = document.getElementById("resultsBox");
+var leftHeader = document.getElementById("leftHeader");
 var restartButton = document.getElementById("restartButton");
 var maxXAxis = window.innerWidth - 124, maxYAxis = window.innerHeight - 44;
-var locationX, locationY, buttonCounter, timerValue, timer;
+var locationX, locationY, buttonCounter, timerValue, timer, highScore = 0;
 
 prepareGame();
 
@@ -63,6 +64,14 @@ function countdown(){
 }
 
 function showResults(){
+	//Show the current score, and update the high score if necessary
+	if(buttonCounter > highScore){
+		highScore = buttonCounter;
+		resultsBox.innerHTML = "Score: " + buttonCounter + "<br>New High Score!<div id='restartButton' onclick='prepareGame()'>Restart</div>";
+	}
+	else { resultsBox.innerHTML = "Score: " + buttonCounter + "<div id='restartButton' onclick='prepareGame()'>Restart</div>" }
+
 	resultsBox.style.display = "block";
-	resultsBox.innerHTML = "Score: " + buttonCounter + "<br><br><div id='restartButton' onclick='prepareGame()'>Restart</div>";
+	leftHeader.innerHTML = "High Score: " + highScore;
+	leftHeader.style.display = "inline";
 }
