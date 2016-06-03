@@ -40,11 +40,7 @@ function enterButton(){
 	buttonCounter++;
 	gameButton.innerHTML = buttonCounter;
 
-	//window height and width are calculated within the function to adjust if the user changes the window size
-	maxXAxis = window.innerWidth - 124;
-	maxYAxis = window.innerHeight - 44;
-
-	//calculates a random location for the button, based on the current window size
+	//calculates a random location for the button
 	locationX = Math.random() * maxXAxis;
 	locationY = Math.random() * maxYAxis;
 
