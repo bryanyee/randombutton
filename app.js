@@ -2,15 +2,15 @@ var gameButton = document.getElementById("gameButton");
 var resultsBox = document.getElementById("resultsBox");
 var leftHeader = document.getElementById("leftHeader");
 var restartButton = document.getElementById("restartButton");
-var maxXAxis = window.innerWidth - 124, maxYAxis = window.innerHeight - 44;
+var maxXAxis = 776, maxYAxis = 406;
 var locationX, locationY, buttonCounter, timerValue, timer, highScore = 0;
 
 prepareGame();
 
 function prepareGame(){
-	//Set the button's initial location
-	locationX = maxXAxis/2;
-	locationY = maxYAxis/2;
+	//Set the button's initial height
+	locationX = 0;						//(the default horizontal location is centered)
+	locationY = maxYAxis/2;				//(the default vertical location is at the top)
 	gameButton.style.left = locationX.toString() + "px";
 	gameButton.style.top = locationY.toString() + "px";
 
@@ -22,7 +22,7 @@ function prepareGame(){
 	gameButton.innerHTML = "Hey there.";
 	gameButton.onmouseenter = enterButton;
 
-	//if the first game is already played, display the high score
+	//If the first game is already played, display the high score
 	if(highScore > 0){
 		leftHeader.innerHTML = "High Score: " + highScore;
 		leftHeader.style.display = "inline";
@@ -40,11 +40,11 @@ function enterButton(){
 	buttonCounter++;
 	gameButton.innerHTML = buttonCounter;
 
-	//calculates a random location for the button
-	locationX = Math.random() * maxXAxis;
-	locationY = Math.random() * maxYAxis;
+	//Calculates a random location for the button
+	locationX = (Math.random() - 0.5) * maxXAxis;	//(the default horizontal location is centered)
+	locationY = Math.random() * maxYAxis;			//(the default vertical location is at the top)
 
-	//sets the location properties of the button
+	//Sets the location properties of the button
 	gameButton.style.left = locationX.toString() + "px";
 	gameButton.style.top = locationY.toString() + "px";
 }

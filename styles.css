@@ -20,7 +20,6 @@ body {
 	float: left;
 	top: -40px;
 	position: relative;
-	z-index: 1;
 	display: none;
 }
 
@@ -30,7 +29,6 @@ body {
 	float: right;
 	top: -50px;
 	position: relative;
-	z-index: 1;
 }
 
 #gameButton {
@@ -41,8 +39,7 @@ body {
 	border: 2px solid black;
 	padding-top: 10px;
 	margin: auto;
-	position: absolute;
-	z-index: 2;
+	position: relative;
 }
 
 #resultsBox{
@@ -55,7 +52,6 @@ body {
 	padding: 15px;
 	font-size: 20pt;
 	position: relative;
-	z-index: 3;
 }
 
 #restartButton{
@@ -64,7 +60,6 @@ body {
 	border: 2px solid black;
 	width: 130px;
 	margin: auto;
-	margin-top: 10px;
 }
 
 #restartButton:hover{
